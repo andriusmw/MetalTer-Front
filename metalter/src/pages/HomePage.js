@@ -14,7 +14,7 @@ export const HomePage =  () => {
     const {entries, loading, error, addEntry, removeEntry} = useEntries();
     const {user} = useContext(AuthContext);
 
-    if (loading) return <p>Loading accessibility issues...</p>;
+    if (loading) return <p>Loading Metalteruits...</p>;
     if (error) return <ErrorMessage message={error}/>;
 
     console.log(entries)
@@ -26,7 +26,7 @@ export const HomePage =  () => {
       <NewEntry addEntry={addEntry} /> 
 
       
-        <h1>Latest accessibility issues: </h1>
+        <h1>Últimos Metalteruits: </h1>
         <EntriesList entries={entries} removeEntry={removeEntry} />
     </section>
 

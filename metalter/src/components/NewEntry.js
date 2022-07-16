@@ -21,9 +21,9 @@ export const NewEntry = ({addEntry}) => {
     //estados para control de los inputs
     const [title, setTitle] = useState("");
     const [descr, setDescr] = useState("");
-    const [city, setCity] = useState("");
-    const [neigh, setNeigh] = useState("");
-    const [status, setStatus] = useState("");
+    const [category, setCategory] = useState("");
+    const [country, setCountry] = useState("");
+    const [video, setVideo] = useState("");
 
 
 
@@ -33,10 +33,7 @@ export const NewEntry = ({addEntry}) => {
     /* -----PARA CONTROLAR LOS CAMPOS Y VER LO QUE SE PASA A FORMDATA
         console.log("title: "+ title);
         console.log("descr: " + descr);
-        console.log("city: " + city);
-        console.log("neigh:" + neigh);
-        console.log("status: " + status);
-        console.log("userId: " + userId);  */
+        */
 
         try{
             setSending(true);
@@ -69,7 +66,7 @@ export const NewEntry = ({addEntry}) => {
     //----------------------------------------------------------------------------------------------------//
    return (
     <>
-    <h1>Add new accessibility issue</h1>
+    <h1>¡CREA UN NUEVO METALTERUIT OSTIA PUTA!</h1>
     <form onSubmit={handleForm} >
         
 
@@ -86,20 +83,20 @@ export const NewEntry = ({addEntry}) => {
             <input type="file" id="image" name="image" defaultValue={null} />
         </fieldset>
         <fieldset> 
-            <label htmlFor="city">City: </label>
-            <input type="text" id="city" name="city" required onChange={(e) => setCity(e.target.value)}/>
+            <label htmlFor="city">Category: </label>
+            <input type="text" id="category" name="category" required onChange={(e) => setCategory(e.target.value)}/>
        </fieldset>
        <fieldset>
-            <label htmlFor="neighborhood">Neighbourhood: </label>
-            <input type="text" id="neighborhood" name="neighborhood" required onChange={(e) => setNeigh(e.target.value)} />
+            <label htmlFor="neighborhood">Country: </label>
+            <input type="text" id="country" name="country" required onChange={(e) => setCountry(e.target.value)} />
         </fieldset>    
         <fieldset className="statusfield">
-            <label htmlFor="status">Status: </label>
-            <input type="text" id="status" name="status" defaultValue={"open"}  onChange={(e) => setStatus(e.target.value)} />
+            <label htmlFor="status">Video_Url: </label>
+            <input type="text" id="video_url" name="video_url" defaultValue={"null"}  onChange={(e) => setVideo(e.target.value)} />
         </fieldset>
         
-            <button>Send</button>
-            {sending ? <p>Sending Issue</p> : null}
+            <button>Mandar a tomar porculo</button>
+            {sending ? <p>Enviando Metalteruit te esperas coño</p> : null}
             {error ? <p>{error} </p> : null}
 
        

@@ -135,10 +135,19 @@ export const Entry = ({entry, removeEntry}) => {
           alt={entry.title}
         />
       ) : null}
-      <p>City: {entry.city} </p>
-      <p>Neighborhood: {entry.neighborhood}</p>
+
+      {entry.video_url ? (
+        <img
+          src={`${process.env.REACT_APP_BACKEND}/uploads/${entry.video_url}`}
+          alt={entry.title}
+        />
+      ) : null}
+
+
+      <p>Category: {entry.category} </p>
+      <p>Country: {entry.country}</p>
       <p>Votes: {entry.votes || "0"} </p>
-      <p>Status: {entry.status}</p>
+      
 
 
          {/*botón de votes */}
