@@ -22,9 +22,10 @@ export const Entry = ({entry, removeEntry}) => {
   const [titleEntry, setTitleEntry] = useState("");
   const [descrEntry, setDescrEntry] = useState("");
   let imageInputRef = useRef();  //para la imagen
-  const [cityEntry, setCityEntry] = useState("");
-  const [neighEntry, setNeighEntry] = useState("");
-  const [statusEntry, setStatusEntry] = useState("");
+  const [category, setCategory] = useState("");
+  const [country, setCountry] = useState("");
+  const [video, setVideo] = useState("");
+
   //estado preview photo
   const [previewPhoto, setPreviewPhoto] = useState("");
  
@@ -100,9 +101,9 @@ export const Entry = ({entry, removeEntry}) => {
               data.append("title", titleEntry);
               data.append("description", descrEntry);
              if (imageInputRef.current.files[0]) {data.append("image", imageInputRef.current.files[0]);}
-              data.append("city", cityEntry);
-              data.append("neighborhood", neighEntry);
-              data.append("status", statusEntry);
+              data.append("category", category);
+              data.append("country", country);
+              data.append("video_url", video);
               console.log(data)
               const entry = await editEntryService({idEntry, data,token});
               
@@ -173,7 +174,7 @@ export const Entry = ({entry, removeEntry}) => {
         ) : null}
 
         {/*Cargar boton editar */}
-        {user && user.role === "admin" ? (
+        {user && user.id === entry.user_id ? (
           <section>
             <button onClick={() => { 
               
@@ -181,13 +182,13 @@ export const Entry = ({entry, removeEntry}) => {
                //SET ESTADOS para que aparezcan los campos rellenos en el form editar
                setTitleEntry(entry.title);
                setDescrEntry(entry.description);
-               setCityEntry(entry.city);
-               setNeighEntry(entry.neighborhood);
-               setStatusEntry(entry.status);
+               setCategory(entry.category);
+               setCountry(entry.country);
+               setVideo(entry.video_url);
 
               
               
-              }} >EDITAR</button>
+              }}> ME'QUIVOCAO</button>
             {error ? <p>{error} </p> : null }
           </section>
         ): null}
@@ -223,16 +224,16 @@ export const Entry = ({entry, removeEntry}) => {
                />}
             </fieldset>
             <fieldset> 
-                <label htmlFor="city">City: </label>
-                <input type="text" id="city" name="city" defaultValue={cityEntry} onChange={ (e)=> {setCityEntry(e.target.value)}} />
+                <label htmlFor="category">Category: </label>
+                <input type="text" id="category" name="category" defaultValue={category} onChange={ (e)=> {setCategory(e.target.value)}} />
            </fieldset>
            <fieldset>
-                <label htmlFor="neighborhood">Neighbourhood: </label>
-                <input type="text" id="neighborhood" name="neighborhood" defaultValue={neighEntry} onChange={ (e)=> {setNeighEntry(e.target.value)}} />
+                <label htmlFor="country">Country: </label>
+                <input type="text" id="country" name="country" defaultValue={country} onChange={ (e)=> {setCountry(e.target.value)}} />
             </fieldset>    
             <fieldset>
-                <label htmlFor="status">Status: </label>
-                <input type="text" id="status" name="status" defaultValue={statusEntry} onChange={ (e)=> {setStatusEntry(e.target.value)}} />
+                <label htmlFor="video_url">Video_Url: </label>
+                <input type="text" id="video_url" name="video_url" defaultValue={video} onChange={ (e)=> {setVideo(e.target.value)}} />
             </fieldset>
             
                 <button>Send Entry</button>

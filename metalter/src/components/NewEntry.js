@@ -91,7 +91,7 @@ export const NewEntry = ({addEntry}) => {
             <input type="text" id="country" name="country" required onChange={(e) => setCountry(e.target.value)} />
         </fieldset>    
         <fieldset className="statusfield">
-            <label htmlFor="status">Video_Url: </label>
+            <label htmlFor="status">Video_Url (optional):  </label>
             <input type="text" id="video_url" name="video_url" defaultValue={null}  onChange={(e) => setVideo(e.target.value)} />
         </fieldset>
         
