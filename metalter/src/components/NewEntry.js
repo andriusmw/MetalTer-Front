@@ -2,7 +2,7 @@
 //
 //--------------------------------------------------------------------------------------------------//
 
-import { useContext, useState } from "react";
+import { useContext, useState, useRef } from "react";
 import swal from "sweetalert";
 import { AuthContext } from "../context/AuthContext";
 import { sendEntryService } from "../services";
@@ -21,6 +21,7 @@ export const NewEntry = ({addEntry}) => {
     //estados para control de los inputs
     const [title, setTitle] = useState("");
     const [descr, setDescr] = useState("");
+    let imageInputRef = useRef();  //para la imagen
     const [category, setCategory] = useState("");
     const [country, setCountry] = useState("");
     const [video, setVideo] = useState("");
@@ -39,7 +40,15 @@ export const NewEntry = ({addEntry}) => {
             setSending(true);
 
            
-            const data = new FormData(e.target);
+           // const data = new FormData(e.target);
+           const data = new FormData();
+            data.append("title", title);
+            data.append("description", descr);
+           if (imageInputRef.current.files[0]) {data.append("image", imageInputRef.current.files[0]);}
+            data.append("category", category);
+            data.append("country", country);
+            data.append("video_url", video);
+            console.log(data)
             const entry = await sendEntryService({data,token});
             
             console.log(entry);
@@ -80,17 +89,40 @@ export const NewEntry = ({addEntry}) => {
         </fieldset>    
         <fieldset>
             <label htmlFor="image">Image (optional): </label>
-            <input type="file" id="image" name="image" defaultValue={null} />
+            <input type="file" id="image" name="image" defaultValue={null}  ref={imageInputRef} />
         </fieldset>
         <fieldset> 
-            <label htmlFor="city">Category: </label>
+            <label htmlFor="category">Category: </label>
             <input type="text" id="category" name="category" required onChange={(e) => setCategory(e.target.value)}/>
+
+         { /*  <select id="category" name="category" form="category" required onSelect={(e) => setCategory(e.target.value)}>
+                <option value="News">News</option>
+                <option value="VIDEO">VIDEO</option>
+                <option value="Concerts">Concerts</option>
+                <option value="Album">Album</option>
+   </select> */}
+
+
        </fieldset>
        <fieldset>
-            <label htmlFor="neighborhood">Country: </label>
-            <input type="text" id="country" name="country" required onChange={(e) => setCountry(e.target.value)} />
+            <label htmlFor="id_country">Country: </label>
+          { /* <input type="text" id="country" name="country" required onChange={(e) => setCountry(e.target.value)} /> */}
+
+
+            <select id="id_country" name="id_country" form="country" required onChange={(e) => setCountry(e.target.value)}
+            defaultValue={"default"}
+            >
+                  <option value={"default"} disabled>
+                         Choose an option 
+                  </option>
+
+                <option value="Spain" >Spain</option>
+                <option value="France">France</option>
+                <option value="Germany">Germany</option>
+                <option value="United Kingdom">United Kingdom</option>
+   </select>
         </fieldset>    
-        <fieldset className="statusfield">
+        <fieldset className="video_url">
             <label htmlFor="status">Video_Url (optional):  </label>
             <input type="text" id="video_url" name="video_url" defaultValue={null}  onChange={(e) => setVideo(e.target.value)} />
         </fieldset>
