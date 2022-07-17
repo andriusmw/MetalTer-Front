@@ -162,9 +162,9 @@ export const Entry = ({entry, removeEntry}) => {
 
 
         {/*cargar boton delete */}
-        {user && user.role === "admin" ? (
+        {user && user.id === entry.user_id ? (
         <section>
-          <button onClick={() => deleteEntry(entry.id)} >Delete Entry</button>
+          <button onClick={() => deleteEntry(entry.id)}>A LA MIERDA</button>
           {error ? <p>{error} </p> : null }
         </section>
         ) : null}
