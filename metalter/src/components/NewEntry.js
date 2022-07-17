@@ -93,14 +93,20 @@ export const NewEntry = ({addEntry}) => {
         </fieldset>
         <fieldset> 
             <label htmlFor="category">Category: </label>
-            <input type="text" id="category" name="category" required onChange={(e) => setCategory(e.target.value)}/>
+          { /* <input type="text" id="category" name="category" required onChange={(e) => setCategory(e.target.value)}/> */}
 
-         { /*  <select id="category" name="category" form="category" required onSelect={(e) => setCategory(e.target.value)}>
-                <option value="News">News</option>
+            <select id="category" name="category" form="category" required onChange={(e) => setCategory(e.target.value)}
+            defaultValue={"default"}
+            >
+                  <option value={"default"} disabled>
+                         Choose an option 
+                  </option>
+
+                <option value="News" >News</option>
                 <option value="VIDEO">VIDEO</option>
                 <option value="Concerts">Concerts</option>
                 <option value="Album">Album</option>
-   </select> */}
+            </select>
 
 
        </fieldset>
