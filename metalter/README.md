@@ -1,7 +1,10 @@
 # Getting Started with Create React App
 
 INSTALAR : npm install sweetalert --save 
-para poder usar alertas personalizadas
+//para poder usar alertas personalizadas
+
+npm install react-plater --save
+//Para poner vídeos.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

@@ -8,6 +8,7 @@ import { deleteEntryService } from "../services"
 import { editEntryService } from "../services"
 import { voteEntryService } from "../services"
 import swal from "sweetalert"
+import ReactPlayer from "react-player"
 
 export const Entry = ({entry, removeEntry}) => {
   //importamos el contexto del usuario
@@ -137,9 +138,11 @@ export const Entry = ({entry, removeEntry}) => {
       ) : null}
 
       {entry.video_url ? (
-        <img
-          src={`${process.env.REACT_APP_BACKEND}/uploads/${entry.video_url}`}
-          alt={entry.title}
+        <ReactPlayer
+          url={entry.video_url}
+          controls
+          origin={'https://www.youtube.com' }
+         
         />
       ) : null}
 
