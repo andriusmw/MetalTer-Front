@@ -85,7 +85,13 @@ export const NewEntry = ({addEntry}) => {
         </fieldset>
         <fieldset>
             <label htmlFor="description">Description: </label>
-            <input type="text" id="description" name="description" required  onChange={(e) => setDescr(e.target.value)}/>
+            <br></br>
+           {/* <input type="text" id="description" name="description" required  onChange={(e) => setDescr(e.target.value)}  /> */}
+
+            <textarea rows = "5" cols = "60"  id="description"  name = "description" required  onChange={(e) => setDescr(e.target.value)}>
+            Aporrea el teclao aquí...
+            </textarea>
+
         </fieldset>    
         <fieldset>
             <label htmlFor="image">Image (optional): </label>
