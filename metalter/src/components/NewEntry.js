@@ -92,7 +92,7 @@ export const NewEntry = ({addEntry}) => {
         </fieldset>    
         <fieldset className="statusfield">
             <label htmlFor="status">Video_Url: </label>
-            <input type="text" id="video_url" name="video_url" defaultValue={"null"}  onChange={(e) => setVideo(e.target.value)} />
+            <input type="text" id="video_url" name="video_url" defaultValue={null}  onChange={(e) => setVideo(e.target.value)} />
         </fieldset>
         
             <button>Mandar a tomar porculo</button>

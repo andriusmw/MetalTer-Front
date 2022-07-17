@@ -23,8 +23,7 @@ export const HomePage =  () => {
 
 
     return <section>
-      <NewEntry addEntry={addEntry} /> 
-
+      {user && (user.id ==! null) ? <NewEntry addEntry={addEntry}  />  : null}
       
         <h1>Últimos Metalteruits: </h1>
         <EntriesList entries={entries} removeEntry={removeEntry} />
