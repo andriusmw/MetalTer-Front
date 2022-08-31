@@ -36,3 +36,32 @@
     transform: rotate(360deg);
   }
 }
+
+/*------------------------------ CSS añadido--------------------------*/
+
+
+/*----------HEADER ----------------*/
+header {
+ 
+ background-color: black;
+}
+
+.pauth {
+  -webkit-text-stroke: 1px black;
+  /*Aplica bordes a la fuente*/
+  font-family: 'Bebas Neue', cursive;
+  color: white;
+  font-size: larger;
+
+}
+
+/*--------HOME PAGE -----------*/
+
+form {
+  background-image: url("../src/images/suelometal1.jpg");
+  color: white
+}
+
+.entryclass {
+ background-color: whitesmoke;
+}

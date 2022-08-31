@@ -22,7 +22,7 @@ export const HomePage =  () => {
   
 
 
-    return <section>
+    return <section className="HomePageStyles">
       {user && (user.id ==! null) ? <NewEntry addEntry={addEntry}  />  : null}
       
         <h1>Últimos Metalteruits: </h1>
