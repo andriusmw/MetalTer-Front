@@ -42,7 +42,7 @@
 
 /*----------HEADER ----------------*/
 header {
- 
+ text-align: center;
  background-color: black;
 }
 
@@ -69,6 +69,11 @@ form {
 }
 
 /*-------ENTRADAS------*/
+
+body {
+  background-color: black;
+  color: white
+}
 
 .entryclass {
  background-color: whitesmoke;
