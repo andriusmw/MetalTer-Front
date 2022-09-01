@@ -74,7 +74,7 @@ export const NewEntry = ({addEntry}) => {
     //
     //----------------------------------------------------------------------------------------------------//
    return (
-    <>
+    <section className="NewEntryClass">
     <h1>¡CREA UN NUEVO METALTERUIT OSTIA PUTA!</h1>
     <form onSubmit={handleForm} >
         
@@ -392,6 +392,6 @@ export const NewEntry = ({addEntry}) => {
 
     </form>
     
-</>
+</section>
    ) 
 }
