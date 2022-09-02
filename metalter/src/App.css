@@ -63,7 +63,7 @@ header {
 }
 
 form {
-  background-image: url("../src/images/suelometal1.jpg");
+  background-color: black;
   color: white
 
 }
@@ -71,10 +71,10 @@ form {
 /*-------ENTRADAS------*/
 
 body {
-  background-color: black;
-  color: white
+  background-image: url("../src/images/suelometal1.jpg");
+  color: black
 }
 
 .entryclass {
- background-color: whitesmoke;
+ background-color: black;
 }
